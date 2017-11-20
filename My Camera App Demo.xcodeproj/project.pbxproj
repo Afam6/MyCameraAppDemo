@@ -15,6 +15,12 @@
 		2234FEFB1FC085B5008CD66A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2234FEF91FC085B5008CD66A /* LaunchScreen.storyboard */; };
 		2234FF061FC085B6008CD66A /* My_Camera_App_DemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2234FF051FC085B6008CD66A /* My_Camera_App_DemoTests.swift */; };
 		2234FF111FC085B6008CD66A /* My_Camera_App_DemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2234FF101FC085B6008CD66A /* My_Camera_App_DemoUITests.swift */; };
+		2234FF211FC09083008CD66A /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2234FF201FC09083008CD66A /* ImageViewController.swift */; };
+		2234FF241FC098ED008CD66A /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2234FF231FC098E2008CD66A /* Photos.framework */; };
+		2234FF261FC0A635008CD66A /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2234FF251FC0A635008CD66A /* PhotoCollectionViewCell.swift */; };
+		2234FF281FC25D8D008CD66A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2234FF271FC25D8B008CD66A /* MapViewController.swift */; };
+		2234FF2E1FC282E7008CD66A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2234FF2D1FC282DD008CD66A /* MapKit.framework */; };
+		2234FF341FC28CAE008CD66A /* Autumn-Uni-Conference-2017-in-Shropshire.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2234FF331FC28CAE008CD66A /* Autumn-Uni-Conference-2017-in-Shropshire.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +55,12 @@
 		2234FF0C1FC085B6008CD66A /* My Camera App DemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "My Camera App DemoUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2234FF101FC085B6008CD66A /* My_Camera_App_DemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = My_Camera_App_DemoUITests.swift; sourceTree = "<group>"; };
 		2234FF121FC085B6008CD66A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2234FF201FC09083008CD66A /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
+		2234FF231FC098E2008CD66A /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		2234FF251FC0A635008CD66A /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		2234FF271FC25D8B008CD66A /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		2234FF2D1FC282DD008CD66A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		2234FF331FC28CAE008CD66A /* Autumn-Uni-Conference-2017-in-Shropshire.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Autumn-Uni-Conference-2017-in-Shropshire.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +68,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2234FF2E1FC282E7008CD66A /* MapKit.framework in Frameworks */,
+				2234FF241FC098ED008CD66A /* Photos.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +97,7 @@
 				2234FF041FC085B6008CD66A /* My Camera App DemoTests */,
 				2234FF0F1FC085B6008CD66A /* My Camera App DemoUITests */,
 				2234FEEC1FC085B5008CD66A /* Products */,
+				2234FF221FC098E2008CD66A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -102,10 +117,14 @@
 				2234FEEE1FC085B5008CD66A /* AppDelegate.swift */,
 				2234FEF01FC085B5008CD66A /* FirstViewController.swift */,
 				2234FEF21FC085B5008CD66A /* SecondViewController.swift */,
+				2234FF251FC0A635008CD66A /* PhotoCollectionViewCell.swift */,
+				2234FF201FC09083008CD66A /* ImageViewController.swift */,
 				2234FEF41FC085B5008CD66A /* Main.storyboard */,
+				2234FF271FC25D8B008CD66A /* MapViewController.swift */,
 				2234FEF71FC085B5008CD66A /* Assets.xcassets */,
 				2234FEF91FC085B5008CD66A /* LaunchScreen.storyboard */,
 				2234FEFC1FC085B5008CD66A /* Info.plist */,
+				2234FF331FC28CAE008CD66A /* Autumn-Uni-Conference-2017-in-Shropshire.jpg */,
 			);
 			path = "My Camera App Demo";
 			sourceTree = "<group>";
@@ -126,6 +145,15 @@
 				2234FF121FC085B6008CD66A /* Info.plist */,
 			);
 			path = "My Camera App DemoUITests";
+			sourceTree = "<group>";
+		};
+		2234FF221FC098E2008CD66A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2234FF2D1FC282DD008CD66A /* MapKit.framework */,
+				2234FF231FC098E2008CD66A /* Photos.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,6 +265,7 @@
 			files = (
 				2234FEFB1FC085B5008CD66A /* LaunchScreen.storyboard in Resources */,
 				2234FEF81FC085B5008CD66A /* Assets.xcassets in Resources */,
+				2234FF341FC28CAE008CD66A /* Autumn-Uni-Conference-2017-in-Shropshire.jpg in Resources */,
 				2234FEF61FC085B5008CD66A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -263,7 +292,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2234FEF31FC085B5008CD66A /* SecondViewController.swift in Sources */,
+				2234FF281FC25D8D008CD66A /* MapViewController.swift in Sources */,
+				2234FF261FC0A635008CD66A /* PhotoCollectionViewCell.swift in Sources */,
 				2234FEEF1FC085B5008CD66A /* AppDelegate.swift in Sources */,
+				2234FF211FC09083008CD66A /* ImageViewController.swift in Sources */,
 				2234FEF11FC085B5008CD66A /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
