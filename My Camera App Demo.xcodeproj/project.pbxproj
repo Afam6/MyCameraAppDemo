@@ -20,7 +20,11 @@
 		2234FF261FC0A635008CD66A /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2234FF251FC0A635008CD66A /* PhotoCollectionViewCell.swift */; };
 		2234FF281FC25D8D008CD66A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2234FF271FC25D8B008CD66A /* MapViewController.swift */; };
 		2234FF2E1FC282E7008CD66A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2234FF2D1FC282DD008CD66A /* MapKit.framework */; };
-		2234FF341FC28CAE008CD66A /* Autumn-Uni-Conference-2017-in-Shropshire.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2234FF331FC28CAE008CD66A /* Autumn-Uni-Conference-2017-in-Shropshire.jpg */; };
+		2234FF381FC8227B008CD66A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2234FF371FC82273008CD66A /* AVFoundation.framework */; };
+		2234FFC11FCC74A6008CD66A /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2234FFC01FCC74A6008CD66A /* PreviewViewController.swift */; };
+		2234FFC31FCDAE7E008CD66A /* ImageAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2234FFC21FCDAE7E008CD66A /* ImageAnnotation.swift */; };
+		2234FFC51FCDAF72008CD66A /* MarkerAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2234FFC41FCDAF72008CD66A /* MarkerAnnotationView.swift */; };
+		2234FFC71FCE688D008CD66A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2234FFC61FCE6882008CD66A /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,7 +64,11 @@
 		2234FF251FC0A635008CD66A /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		2234FF271FC25D8B008CD66A /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		2234FF2D1FC282DD008CD66A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		2234FF331FC28CAE008CD66A /* Autumn-Uni-Conference-2017-in-Shropshire.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Autumn-Uni-Conference-2017-in-Shropshire.jpg"; sourceTree = "<group>"; };
+		2234FF371FC82273008CD66A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		2234FFC01FCC74A6008CD66A /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
+		2234FFC21FCDAE7E008CD66A /* ImageAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAnnotation.swift; sourceTree = "<group>"; };
+		2234FFC41FCDAF72008CD66A /* MarkerAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerAnnotationView.swift; sourceTree = "<group>"; };
+		2234FFC61FCE6882008CD66A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +76,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2234FFC71FCE688D008CD66A /* CoreLocation.framework in Frameworks */,
+				2234FF381FC8227B008CD66A /* AVFoundation.framework in Frameworks */,
 				2234FF2E1FC282E7008CD66A /* MapKit.framework in Frameworks */,
 				2234FF241FC098ED008CD66A /* Photos.framework in Frameworks */,
 			);
@@ -116,15 +126,17 @@
 			children = (
 				2234FEEE1FC085B5008CD66A /* AppDelegate.swift */,
 				2234FEF01FC085B5008CD66A /* FirstViewController.swift */,
+				2234FFC01FCC74A6008CD66A /* PreviewViewController.swift */,
 				2234FEF21FC085B5008CD66A /* SecondViewController.swift */,
 				2234FF251FC0A635008CD66A /* PhotoCollectionViewCell.swift */,
 				2234FF201FC09083008CD66A /* ImageViewController.swift */,
 				2234FEF41FC085B5008CD66A /* Main.storyboard */,
+				2234FFC41FCDAF72008CD66A /* MarkerAnnotationView.swift */,
 				2234FF271FC25D8B008CD66A /* MapViewController.swift */,
+				2234FFC21FCDAE7E008CD66A /* ImageAnnotation.swift */,
 				2234FEF71FC085B5008CD66A /* Assets.xcassets */,
 				2234FEF91FC085B5008CD66A /* LaunchScreen.storyboard */,
 				2234FEFC1FC085B5008CD66A /* Info.plist */,
-				2234FF331FC28CAE008CD66A /* Autumn-Uni-Conference-2017-in-Shropshire.jpg */,
 			);
 			path = "My Camera App Demo";
 			sourceTree = "<group>";
@@ -150,6 +162,8 @@
 		2234FF221FC098E2008CD66A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2234FFC61FCE6882008CD66A /* CoreLocation.framework */,
+				2234FF371FC82273008CD66A /* AVFoundation.framework */,
 				2234FF2D1FC282DD008CD66A /* MapKit.framework */,
 				2234FF231FC098E2008CD66A /* Photos.framework */,
 			);
@@ -265,7 +279,6 @@
 			files = (
 				2234FEFB1FC085B5008CD66A /* LaunchScreen.storyboard in Resources */,
 				2234FEF81FC085B5008CD66A /* Assets.xcassets in Resources */,
-				2234FF341FC28CAE008CD66A /* Autumn-Uni-Conference-2017-in-Shropshire.jpg in Resources */,
 				2234FEF61FC085B5008CD66A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -292,10 +305,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				2234FEF31FC085B5008CD66A /* SecondViewController.swift in Sources */,
+				2234FFC51FCDAF72008CD66A /* MarkerAnnotationView.swift in Sources */,
 				2234FF281FC25D8D008CD66A /* MapViewController.swift in Sources */,
+				2234FFC11FCC74A6008CD66A /* PreviewViewController.swift in Sources */,
 				2234FF261FC0A635008CD66A /* PhotoCollectionViewCell.swift in Sources */,
 				2234FEEF1FC085B5008CD66A /* AppDelegate.swift in Sources */,
 				2234FF211FC09083008CD66A /* ImageViewController.swift in Sources */,
+				2234FFC31FCDAE7E008CD66A /* ImageAnnotation.swift in Sources */,
 				2234FEF11FC085B5008CD66A /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -462,13 +478,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 649NXX47HL;
 				INFOPLIST_FILE = "My Camera App Demo/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.thegypsy.My-Camera-App-Demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -476,13 +496,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 649NXX47HL;
 				INFOPLIST_FILE = "My Camera App Demo/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.thegypsy.My-Camera-App-Demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

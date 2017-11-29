@@ -16,25 +16,25 @@ class SecondViewController: UIViewController, UICollectionViewDataSource, UIColl
     var albumExists = false
     var photoAsset: PHFetchResult<PHAsset>!
     var phAssetCollection: PHAssetCollection!
-    
+    var detectChange: Int = 0
    
     
     @objc func appMovedToBackground() {
-        print("App moved to background!")
+        //print("App moved to background!")
     }
     
     @objc func appMovedToForeground() {
-        print("App moved to foreground!")
+        //print("App moved to foreground!")
         self.viewDidAppear(true)
     }
     
     @objc func rotated() {
         if UIDeviceOrientationIsLandscape(UIDevice.current.orientation) {
-            print("Landscape")
+            //print("Landscape")
         }
         
         if UIDeviceOrientationIsPortrait(UIDevice.current.orientation) {
-            print("Portrait")
+            //print("Portrait")
         }
     }
     
@@ -50,6 +50,7 @@ class SecondViewController: UIViewController, UICollectionViewDataSource, UIColl
     }
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
@@ -75,11 +76,14 @@ class SecondViewController: UIViewController, UICollectionViewDataSource, UIColl
             //found the album
             self.albumExists = true
             self.phAssetCollection = first_Obj as! PHAssetCollection
+            self.photoAsset = PHAsset.fetchAssets(in: self.phAssetCollection, options: nil)
+            self.collectionView.reloadData()
+            print("found the album!")
         }else{
             //Album placeholder for the asset collection, used to reference collection in completion handler
             var albumPlaceholder:PHObjectPlaceholder!
             //create the folder
-            NSLog("\nFolder \"%@\" does not exist\nCreating now...", albumName)
+            //NSLog("\nFolder \"%@\" does not exist\nCreating now...", albumName)
             PHPhotoLibrary.shared().performChanges({
                 let request = PHAssetCollectionChangeRequest.creationRequestForAssetCollection(withTitle: albumName)
                 albumPlaceholder = request.placeholderForCreatedAssetCollection
@@ -92,7 +96,6 @@ class SecondViewController: UIViewController, UICollectionViewDataSource, UIColl
                     self.photoAsset = PHAsset.fetchAssets(in: self.phAssetCollection, options: nil)
                     
                 }else{
-                    print("Error creating folder")
                     self.albumExists = false
                     self.viewDidLoad()
                 }
@@ -101,32 +104,45 @@ class SecondViewController: UIViewController, UICollectionViewDataSource, UIColl
         }
         
         mapPhotoAsset = self.photoAsset
-        
+        if self.photoAsset != nil {
+            detectChange = photoAsset.count
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        // Get photos from asset collection
         
+        AppUtility.lockOrientation(.all)
+        
+        // Get photos from asset collection
+        print("view did appear")
         self.navigationController?.hidesBarsOnTap = false   //!! Use optional chaining
         self.tabBarController?.tabBar.isHidden = false
-        
+        print(detectChange)
         if albumExists {
-            self.photoAsset = PHAsset.fetchAssets(in: self.phAssetCollection, options: nil)
-            //mapPhotoAsset = PHAsset.fetchAssets(in: self.phAssetCollection, options: nil)
-            print("Photo Asset is !!!!!!!!!.........")
-            print(photoAsset)
+            if self.photoAsset != nil {
+                self.photoAsset = PHAsset.fetchAssets(in: self.phAssetCollection, options: nil)
+                print("Photo Asset is !!!!!!!!!.........")
+                print(photoAsset.count)
+            }
         } else {
             print("no album found")
         }
-        
-        self.collectionView.reloadData()
+        if self.photoAsset != nil {
+            if self.photoAsset.count != detectChange {
+                print("Change occured")
+                detectChange = self.photoAsset.count
+                self.collectionView.reloadData()
+            }
+        }
         
         mapPhotoAsset = self.photoAsset
         
-        // What if there are no photos in photo collection?
-        
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        AppUtility.lockOrientation(.portrait)
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -163,11 +179,12 @@ class SecondViewController: UIViewController, UICollectionViewDataSource, UIColl
         
         let phAsset: PHAsset = self.photoAsset[indexPath.item]
         
-        PHImageManager.default().requestImage(for: phAsset, targetSize: PHImageManagerMaximumSize, contentMode: .aspectFill, options: nil, resultHandler: { (result, info) in
+        PHImageManager.default().requestImage(for: phAsset, targetSize: PHImageManagerMaximumSize, contentMode: .aspectFit, options: nil, resultHandler: { (result, info) in
             if let image = result {
                 cell.setThumbnailImage(thumbnailImage: image)
             }
         })
+        
         
         //cell.backgroundColor = UIColor.red
         
@@ -219,19 +236,10 @@ class SecondViewController: UIViewController, UICollectionViewDataSource, UIColl
             
             DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async(execute: {
                 PHPhotoLibrary.shared().performChanges({
-                    //let createdAssetRequest = PHAssetChangeRequest.creationRequestForAsset(from: uiImage) // Add to main photo gallery
-                    //let x = PHAssetChangeRequest.init(for: uiImage)
-                    // Use placeholder to add image to album for our app
-                    
-                    //let createdAssetPlaceholder = createdAssetRequest.placeholderForCreatedAsset
-                    
-                    //let changeRequest = PHAssetChangeRequest.init(for: uiImage);
-                    //let createdAssetPlaceholder = changeRequest.placeholderForCreatedAsset
                     
                     let enumeration:NSArray = [uiImage];
                     
                     if let albumChangeRequest = PHAssetCollectionChangeRequest(for: self.phAssetCollection, assets: self.photoAsset) {
-                        //albumChangeRequest.addAssets([createdAssetPlaceholder!] as NSArray)
                         
                         let cnt = self.phAssetCollection.estimatedAssetCount
                         if cnt == 0{
@@ -239,7 +247,7 @@ class SecondViewController: UIViewController, UICollectionViewDataSource, UIColl
                             print(cnt)
                             print("Yooo")
                         }else{
-                            albumChangeRequest.insertAssets(enumeration, at: [0])
+                            albumChangeRequest.insertAssets(enumeration, at: [self.photoAsset.count])
                             print(cnt)
                             print("Hello afam")
                         }
